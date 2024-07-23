@@ -232,7 +232,7 @@ $ n = p_1^{e_1} \cdot p_2^{e_2} \cdot \ldots \cdot p_k^{e_k} $
 
 - For example, to simplify $\frac{84}{100}$:
 
-  $ \frac{84}{100} = \frac{2^2 \cdot 3^1 \cdot 7^1}{2^2 \cdot 5^2} $
+  $\frac{84}{100} = \frac{2^2 \cdot 3^1 \cdot 7^1}{2^2 \cdot 5^2}$
 
   Cancel the common factor $2^2$:
 
