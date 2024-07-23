@@ -4,9 +4,9 @@ Matrix exponentiation is a powerful technique used to solve linear recurrence re
 
 Let's take an example recurrence relation:
 
-$ T(n) = a \cdot T(n-1) + b \cdot T(n-2) $
+$$T(n) = a \cdot T(n-1) + b \cdot T(n-2) $
 
-Here, $a$ and $b$ are coefficients.
+Here, $a$$and $b$$are coefficients.
 
 ### Step-by-Step Explanation
 
@@ -16,7 +16,7 @@ Here, $a$ and $b$ are coefficients.
    T(n) = a \cdot T(n-1) + b \cdot T(n-2)
    $
 
-   Assume the initial conditions are $ T(0) $ and $ T(1) $.
+   Assume the initial conditions are$$T(0)$$and$$T(1) $.
 
 2. **Convert the Recurrence Relation to Matrix Form:**
 
@@ -46,38 +46,38 @@ Here, $a$ and $b$ are coefficients.
    V(n) = M \cdot V(n-1)
    $
 
-   To find $ V(n) $, we need to exponentiate the matrix $M$.
+   To find$$V(n) $, we need to exponentiate the matrix $M$.
 
 4. **Matrix Exponentiation:**
-   To compute $ V(n) $, we raise $M$ to the power $ (n-1) $:
+   To compute$$V(n) $, we raise $M$$to the power$$(n-1) $:
 
    $
    V(n) = M^{(n-1)} \cdot V(1)
    $
 
-   Here, $ V(1) = \begin{pmatrix} T(1) \\ T(0) \end{pmatrix} $.
+   Here,$$V(1) = \begin{pmatrix} T(1) \\ T(0) \end{pmatrix} $.
 
 5. **Recursive Matrix Exponentiation:**
    Matrix exponentiation can be done efficiently using the divide-and-conquer method:
 
-   - If $k$ is even: $ M^k = (M^{k/2}) \cdot (M^{k/2}) $
-   - If $k$ is odd: $ M^k = M \cdot M^{k-1} $
+   - If $k$$is even:$$M^k = (M^{k/2}) \cdot (M^{k/2}) $
+   - If $k$$is odd:$$M^k = M \cdot M^{k-1} $
 
 ### Example Calculation
 
 Let's say we have a recurrence relation:
 
-$ T(n) = 2T(n-1) + 3T(n-2) $
+$$T(n) = 2T(n-1) + 3T(n-2) $
 
-with initial conditions $ T(0) = 1 $ and $ T(1) = 2 $.
+with initial conditions$$T(0) = 1$$and$$T(1) = 2 $.
 
-The matrix $ M $ would be:
+The matrix$$M$$would be:
 
 $
 M = \begin{pmatrix} 2 & 3 \\ 1 & 0 \end{pmatrix}
 $
 
-To find $ T(n) $, we compute $ M^{(n-1)} $ and multiply it by $ V(1) $:
+To find$$T(n) $, we compute$$M^{(n-1)}$$and multiply it by$$V(1) $:
 
 $
 V(1) = \begin{pmatrix} 2 \\ 1 \end{pmatrix}

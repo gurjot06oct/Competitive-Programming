@@ -6,20 +6,20 @@ The extended Euclidean algorithm not only finds the gcd of two integers but also
 
 **Steps:**
 
-1. **Apply the Euclidean Algorithm** to find $ \text{gcd}(a, b) $.
+1. **Apply the Euclidean Algorithm** to find$$\text{gcd}(a, b) $.
 
-   - Divide $ a $ by $ b $: $ a = bq_1 + r_1 $.
+   - Divide$$a$$by$$b $:$$a = bq_1 + r_1 $.
 
-   - Continue the process with $ b $ and $ r_1 $: $ b = r_1q_2 + r_2 $, etc., until the remainder is 0.
+   - Continue the process with$$b$$and$$r_1 $:$$b = r_1q_2 + r_2 $, etc., until the remainder is 0.
 
-   - The last non-zero remainder is $ \text{gcd}(a, b) $.
+   - The last non-zero remainder is$$\text{gcd}(a, b) $.
 
-2. **Back-substitute** to express $ \text{gcd}(a, b) $ as a combination of $ a $ and $ b $.
+2. **Back-substitute** to express$$\text{gcd}(a, b)$$as a combination of$$a$$and$$b $.
 
 **Example:**
-Find integers $ x $ and $ y $ that satisfy $ 240x + 46y = 2 $.
+Find integers$$x$$and$$y$$that satisfy$$240x + 46y = 2 $.
 
-1. Apply the Euclidean Algorithm to $ 240 $ and $ 46 $:
+1. Apply the Euclidean Algorithm to$$240$$and$$46 $:
 
    $
    \begin{aligned}
@@ -31,9 +31,9 @@ Find integers $ x $ and $ y $ that satisfy $ 240x + 46y = 2 $.
    \end{aligned}
    $
 
-   So, $ \text{gcd}(240, 46) = 2 $.
+   So,$$\text{gcd}(240, 46) = 2 $.
 
-2. Back-substitute to express $ 2 $ as a linear combination of $ 240 $ and $ 46 $:
+2. Back-substitute to express$$2$$as a linear combination of$$240$$and$$46 $:
 
    $
    \begin{aligned}
@@ -47,20 +47,20 @@ Find integers $ x $ and $ y $ that satisfy $ 240x + 46y = 2 $.
    \end{aligned}
    $
 
-   Thus, one particular solution is $ x_0 = -9 $ and $ y_0 = 47 $.
+   Thus, one particular solution is$$x_0 = -9$$and$$y_0 = 47 $.
 
 ## **General Solution**
 
-Once a particular solution $(x_0, y_0)$ is found, the general solution to the linear Diophantine equation $ ax + by = c $ can be expressed as:
+Once a particular solution $(x_0, y_0)$$is found, the general solution to the linear Diophantine equation$$ax + by = c$$can be expressed as:
 
 $
 x = x_0 + \frac{b}{d}t, \quad y = y_0 - \frac{a}{d}t,
 $
 
-where $ t $ is an integer parameter and $ d = \text{gcd}(a, b) $.
+where$$t$$is an integer parameter and$$d = \text{gcd}(a, b) $.
 
 **Example (continued):**
-Given $ 240x + 46y = 2 $ with particular solution $ x_0 = -9 $ and $ y_0 = 47 $, and $ d = 2 $:
+Given$$240x + 46y = 2$$with particular solution$$x_0 = -9$$and$$y_0 = 47 $, and$$d = 2 $:
 
 $
 x = -9 + \frac{46}{2}t = -9 + 23t,
@@ -70,7 +70,7 @@ $
 y = 47 - \frac{240}{2}t = 47 - 120t,
 $
 
-where $ t $ is any integer.
+where$$t$$is any integer.
 
 # Solving Multiple Linear Diophantine Equations
 
@@ -99,7 +99,7 @@ $
 \end{cases}
 $
 
-1. Eliminate $ y $:
+1. Eliminate$$y $:
 
    $
    \begin{aligned}
@@ -127,7 +127,7 @@ $
    x = 1.
    $
 
-3. Substitute $ x = 1 $ into (1):
+3. Substitute$$x = 1$$into (1):
 
    $
    3(1) + 2y = 5,
@@ -141,7 +141,7 @@ $
    y = 1.
    $
 
-Thus, the solution is $ x = 1 $, $ y = 1 $.
+Thus, the solution is$$x = 1 $,$$y = 1 $.
 
 # Excercise Questions
 
@@ -186,9 +186,9 @@ Thus, the solution is $ x = 1 $, $ y = 1 $.
 
 ## Question 5: Proof and Theory
 
-1. **(15 points)** Prove that the linear Diophantine equation $ ax + by = c $ has infinitely many solutions if it has at least one solution.
+1. **(15 points)** Prove that the linear Diophantine equation$$ax + by = c$$has infinitely many solutions if it has at least one solution.
 
-2. **(15 points)** Given that $ \text{gcd}(a, b) = 1 $, prove that the linear Diophantine equation $ ax + by = 1 $ always has integer solutions.
+2. **(15 points)** Given that$$\text{gcd}(a, b) = 1 $, prove that the linear Diophantine equation$$ax + by = 1$$always has integer solutions.
 
 ## Question 6: Higher Dimensions (Optional/Challenging)
 
@@ -218,13 +218,13 @@ Thus, the solution is $ x = 1 $, $ y = 1 $.
    $
 
 2. **Particular Solution:**
-   Find integers $ x $ and $ y $ such that $ 3x + 5y = 7 $. Using the extended Euclidean algorithm:
+   Find integers$$x$$and$$y$$such that$$3x + 5y = 7 $. Using the extended Euclidean algorithm:
 
    $
    7 = 2 \times 3 + 1 \implies 1 = 7 - 2 \times 3 \implies 1 = 7 - 2(15x + 25y) \implies 1 = 3x + 5y.
    $
 
-   We can find particular solutions by back-substitution, eventually yielding $ x = 1 $ and $ y = 1 $. Thus:
+   We can find particular solutions by back-substitution, eventually yielding$$x = 1$$and$$y = 1 $. Thus:
 
    $
    x = 1 + 5t, \quad y = 1 - 3t \quad \text{(general solution)}.
@@ -249,18 +249,18 @@ Thus, the solution is $ x = 1 $, $ y = 1 $.
      -x = 1 \implies x = -1.
      $
 
-   - Substitute $ x = -1 $ into one of the original equations:
+   - Substitute$$x = -1$$into one of the original equations:
 
      $
      3(-1) + 2y = 1 \implies -3 + 2y = 1 \implies 2y = 4 \implies y = 2.
      $
 
-   Thus, $ x = -1 $, $ y = 2 $.
+   Thus,$$x = -1 $,$$y = 2 $.
 
 ### Question 5
 
 1. **Proof:**
-   Suppose $(x_0, y_0)$ is a particular solution to $ ax + by = c $. The general solution is $ x = x_0 + \frac{b}{d}t $ and $ y = y_0 - \frac{a}{d}t $, where $ t $ is an integer. Since $ t $ can be any integer, there are infinitely many solutions.
+   Suppose $(x_0, y_0)$$is a particular solution to$$ax + by = c $. The general solution is$$x = x_0 + \frac{b}{d}t$$and$$y = y_0 - \frac{a}{d}t $, where$$t$$is an integer. Since$$t$$can be any integer, there are infinitely many solutions.
 
 2. **Proof:**
-   Given $ \text{gcd}(a, b) = 1 $, there exist integers $ x $ and $ y $ such that $ ax + by = 1 $ by Bezout's identity.
+   Given$$\text{gcd}(a, b) = 1 $, there exist integers$$x$$and$$y$$such that$$ax + by = 1$$by Bezout's identity.
