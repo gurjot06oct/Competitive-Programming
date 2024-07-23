@@ -1,36 +1,36 @@
 # Bézout's Identity (Bézout's Lemma)
 
-**Bézout's Identity** (also known as Bézout's Lemma) states that for any two integers $a$$and $b$, if $d$$is their greatest common divisor (GCD), then there exist integers $x$$and $y$$such that:
-$$ax + by = d $
+**Bézout's Identity** (also known as Bézout's Lemma) states that for any two integers $a $ and $b$, if $d $ is their greatest common divisor (GCD), then there exist integers $x $ and $y $ such that:
+ $ ax + by = d $
 
-In other words, the GCD of $a$$and $b$$can be expressed as a linear combination of $a$$and $b$.
+In other words, the GCD of $a $ and $b $ can be expressed as a linear combination of $a $ and $b$.
 
 ## Solutions of Bézout's Identity
 
-The **Extended Euclidean Algorithm** is an enhancement of the basic Euclidean algorithm. While the Euclidean algorithm efficiently finds the greatest common divisor (GCD) of two integers $a$$and $b$, the Extended Euclidean Algorithm not only computes the GCD but also finds integers $x$$and $y$$such that:
+The **Extended Euclidean Algorithm** is an enhancement of the basic Euclidean algorithm. While the Euclidean algorithm efficiently finds the greatest common divisor (GCD) of two integers $a $ and $b$, the Extended Euclidean Algorithm not only computes the GCD but also finds integers $x $ and $y $ such that:
 
-$$ax + by = \text{GCD}(a, b) $
+ $ ax + by = \text{GCD}(a, b) $
 
 ## Steps of the Extended Euclidean Algorithm
 
-1. **Initialization:** Start with two integers $a$$and $b$, where $a \geq b \geq 0$.
+1. **Initialization:** Start with two integers $a $ and $b$, where $a \geq b \geq 0$.
 
-2. **Base Case:** If $b = 0$, then$$\text{GCD}(a, 0) = a$$and we can set $x = 1, y = 0$.
+2. **Base Case:** If $b = 0$, then $ \text{GCD}(a, 0) = a $ and we can set $x = 1, y = 0$.
 
 3. **Recursive Step:** If $b \neq 0$:
 
-- Apply the Euclidean algorithm to $b$$and $a \mod b$$to find $d = \text{GCD}(b, a \mod b)$$and integers $x'$$and $y'$$such that$$bx' + (a \mod b)y' = d $.
+- Apply the Euclidean algorithm to $b $ and $a \mod b $ to find $d = \text{GCD}(b, a \mod b) $ and integers $x' $ and $y' $ such that $ bx' + (a \mod b)y' = d $.
 
-4. **Update $x$$and $y$:**
+4. **Update $x $ and $y$:**
 
-- From the base of the recursive step, update $x$$and $y$$using the relations derived from the recursive step:
- $$x = y', \quad y = x' - \left\lfloor \frac{a}{b} \right\rfloor \cdot y' $
+- From the base of the recursive step, update $x $ and $y $ using the relations derived from the recursive step:
+  $ x = y', \quad y = x' - \left\lfloor \frac{a}{b} \right\rfloor \cdot y' $
 
-5. **Repeat:** Repeat the process until $b = 0$. The integers $x$$and $y$$obtained at this point satisfy$$ax + by = \text{GCD}(a, b) $.
+5. **Repeat:** Repeat the process until $b = 0$. The integers $x $ and $y $ obtained at this point satisfy $ ax + by = \text{GCD}(a, b) $.
 
 ## Example
 
-Let's find the GCD of $a = 56$$and $b = 15$$using the Extended Euclidean Algorithm to find $x$$and $y$.
+Let's find the GCD of $a = 56 $ and $b = 15 $ using the Extended Euclidean Algorithm to find $x $ and $y$.
 
 1. **Run the Euclidean Algorithm** to find the gcd:
 
@@ -54,7 +54,7 @@ Let's find the GCD of $a = 56$$and $b = 15$$using the Extended Euclidean Algorit
      1 = 4 - 3 \cdot 1
      $
 
-   - Substitute $3$$from the previous equation:
+   - Substitute $3 $ from the previous equation:
 
      $
      3 = 11 - 4 \cdot 2
@@ -76,7 +76,7 @@ Let's find the GCD of $a = 56$$and $b = 15$$using the Extended Euclidean Algorit
      1 = 4 \cdot 3 - 11
      $
 
-   - Substitute $4$$from the previous equation:
+   - Substitute $4 $ from the previous equation:
 
      $
      4 = 15 - 11 \cdot 1
@@ -94,7 +94,7 @@ Let's find the GCD of $a = 56$$and $b = 15$$using the Extended Euclidean Algorit
      1 = 15 \cdot 3 - 11 \cdot 4
      $
 
-   - Substitute $11$$from the previous equation:
+   - Substitute $11 $ from the previous equation:
 
      $
      11 = 56 - 15 \cdot 3
@@ -118,7 +118,7 @@ Let's find the GCD of $a = 56$$and $b = 15$$using the Extended Euclidean Algorit
      1 = 15 \cdot 15 - 56 \cdot 4
      $
 
-   So, we have found $x = 15$$and $y = -4$$such that $56(-4) + 15(15) = 1$.
+   So, we have found $x = 15 $ and $y = -4 $ such that $56(-4) + 15(15) = 1$.
 
    In summary:
 
@@ -126,7 +126,7 @@ Let's find the GCD of $a = 56$$and $b = 15$$using the Extended Euclidean Algorit
    56 \cdot (-4) + 15 \cdot 15 = 1
    $
 
-   Thus, the coefficients are $x = 15$$and $y = -4$.
+   Thus, the coefficients are $x = 15 $ and $y = -4$.
 
 ## Pseudocode
 
@@ -159,7 +159,7 @@ Let's find the GCD of $a = 56$$and $b = 15$$using the Extended Euclidean Algorit
 
 ## Matrix Method for Finding Integers x and y in Bézout's Identity
 
-The integers$$x$$and$$y$$can also be determined using an equivalent matrix method. The sequence of equations from Euclid's algorithm:
+The integers $ x $ and $ y $ can also be determined using an equivalent matrix method. The sequence of equations from Euclid's algorithm:
 
 $
 a = q_0 b + r_0 \\
@@ -168,7 +168,7 @@ b = q_1 r_0 + r_1 \\
 r_{N-2} = q_N r_{N-1} + 0
 $
 
-can be expressed as a product of$$2 \times 2$$quotient matrices multiplying a two-dimensional remainder vector:
+can be expressed as a product of $ 2 \times 2 $ quotient matrices multiplying a two-dimensional remainder vector:
 
 $
 \begin{pmatrix} a \\ b \end{pmatrix} =
@@ -182,7 +182,7 @@ $
 \begin{pmatrix} r_{N-1} \\ 0 \end{pmatrix}.
 $
 
-Let$$\mathbf{M}$$represent the product of all the quotient matrices:
+Let $ \mathbf{M} $ represent the product of all the quotient matrices:
 
 $
 \mathbf{M} = \begin{pmatrix} m_{11} & m_{12} \\ m_{21} & m_{22} \end{pmatrix} =
@@ -200,7 +200,7 @@ $
 \mathbf{M} \begin{pmatrix} g \\ 0 \end{pmatrix}.
 $
 
-To express$$g$$as a linear sum of$$a$$and$$b $, both sides of this equation can be multiplied by the inverse of the matrix$$\mathbf{M} $. The determinant of$$\mathbf{M}$$equals$$(-1)^{N+1} $, as it is the product of the determinants of the quotient matrices, each of which is negative one. Since the determinant of$$\mathbf{M}$$is never zero, the vector of the final remainders can be solved using the inverse of$$\mathbf{M} $:
+To express $ g $ as a linear sum of $ a $ and $ b $, both sides of this equation can be multiplied by the inverse of the matrix $ \mathbf{M} $. The determinant of $ \mathbf{M} $ equals $ (-1)^{N+1} $, as it is the product of the determinants of the quotient matrices, each of which is negative one. Since the determinant of $ \mathbf{M} $ is never zero, the vector of the final remainders can be solved using the inverse of $ \mathbf{M} $:
 
 $
 \begin{pmatrix} g \\ 0 \end{pmatrix} =
@@ -215,4 +215,4 @@ $
 g = (-1)^{N+1} (m_{22} a - m_{12} b),
 $
 
-thus the two integers of Bézout's identity are$$x = (-1)^{N+1} m*{22}$$and$$y = (-1)^{N+1} m*{12} $. The matrix method is as efficient as the equivalent recursion, with two multiplications and two additions per step of the Euclidean algorithm.
+thus the two integers of Bézout's identity are $ x = (-1)^{N+1} m*{22} $ and $ y = (-1)^{N+1} m*{12} $. The matrix method is as efficient as the equivalent recursion, with two multiplications and two additions per step of the Euclidean algorithm.

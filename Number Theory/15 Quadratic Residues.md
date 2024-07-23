@@ -1,21 +1,21 @@
 # Quadratic Congruences and Their Residues
 
-Quadratic congruences are equations of the form$$ax^2 + bx + c \equiv 0 \pmod{n} $, where $a$, $b$, $c$, and $n$$are integers and $n \geq 2$. Solving such congruences involves finding integer solutions $x$$that satisfy the given equation modulo $n$.
+Quadratic congruences are equations of the form $ ax^2 + bx + c \equiv 0 \pmod{n} $, where $a$, $b$, $c$, and $n $ are integers and $n \geq 2$. Solving such congruences involves finding integer solutions $x $ that satisfy the given equation modulo $n$.
 
 ## Key Concepts
 
 1. **Quadratic Residue**:
 
-   - An integer $a$$is called a quadratic residue modulo $n$$if there exists an integer $x$$such that $x^2 \equiv a \pmod{n}$.
-   - If no such $x$$exists, then $a$$is a quadratic non-residue modulo $n$.
+   - An integer $a $ is called a quadratic residue modulo $n $ if there exists an integer $x $ such that $x^2 \equiv a \pmod{n}$.
+   - If no such $x $ exists, then $a $ is a quadratic non-residue modulo $n$.
 
 2. **Euler's Criterion**:
 
-   - Euler's Criterion is used to determine whether an integer$$a$$is a quadratic residue modulo a prime$$p $.
-   - When considering$$x^2 \equiv a \pmod{2} $, the sole solution is$$x \equiv a \pmod{2} $.
+   - Euler's Criterion is used to determine whether an integer $ a $ is a quadratic residue modulo a prime $ p $.
+   - When considering $ x^2 \equiv a \pmod{2} $, the sole solution is $ x \equiv a \pmod{2} $.
 
    **Euler's Criterion Statement:**
-   For an integer$$a$$and an odd prime$$p $:
+   For an integer $ a $ and an odd prime $ p $:
 
    $
    a^{\frac{p-1}{2}} \equiv \begin{cases}
@@ -27,13 +27,13 @@ Quadratic congruences are equations of the form$$ax^2 + bx + c \equiv 0 \pmod{n}
    **Example:**
    Determine whether 3 is a quadratic residue modulo 7.
 
-   1. Compute$$3^{\frac{7-1}{2}} = 3^3 \pmod{7} $.
-   2. Calculate$$3^3 = 27 \equiv 6 \pmod{7} $, and 6 is equivalent to -1 modulo 7.
+   1. Compute $ 3^{\frac{7-1}{2}} = 3^3 \pmod{7} $.
+   2. Calculate $ 3^3 = 27 \equiv 6 \pmod{7} $, and 6 is equivalent to -1 modulo 7.
    3. Therefore, 3 is not a quadratic residue modulo 7.
 
 3. **Legendre Symbol**:
 
-   - For an odd prime $p$, the Legendre symbol $\left( \frac{a}{p} \right)$$is defined as:
+   - For an odd prime $p$, the Legendre symbol $\left( \frac{a}{p} \right) $ is defined as:
 
      $
      \left( \frac{a}{p} \right) =
@@ -51,26 +51,26 @@ Quadratic congruences are equations of the form$$ax^2 + bx + c \equiv 0 \pmod{n}
      $
      \left( \frac{p}{q} \right) \left( \frac{q}{p} \right) = (-1)^{\frac{(p-1)(q-1)}{4}}
      $
-     for distinct odd primes $p$$and $q$.
+     for distinct odd primes $p $ and $q$.
 
 ## Solving Quadratic Congruences
 
-The problem is to find the square root of a number$$n$$under modulo$$p $, where$$p$$is a prime number. This means finding$$x$$such that:
+The problem is to find the square root of a number $ n $ under modulo $ p $, where $ p $ is a prime number. This means finding $ x $ such that:
 
-$$x^2 \equiv n \pmod{p} $
+ $ x^2 \equiv n \pmod{p} $
 
-The Shanks-Tonelli algorithm provides a way to solve this problem for any prime$$p $.
+The Shanks-Tonelli algorithm provides a way to solve this problem for any prime $ p $.
 
 ### Algorithm Steps
 
 1. **Check if a square root exists:**
-   Calculate$$n^{\frac{p-1}{2}} \mod p $. If the result is$$p-1 $, then the square root does not exist. This is based on Euler's criterion, which states that$$n$$has a square root modulo$$p$$if and only if$$n^{\frac{p-1}{2}} \equiv 1 \pmod{p} $.
+   Calculate $ n^{\frac{p-1}{2}} \mod p $. If the result is $ p-1 $, then the square root does not exist. This is based on Euler's criterion, which states that $ n $ has a square root modulo $ p $ if and only if $ n^{\frac{p-1}{2}} \equiv 1 \pmod{p} $.
 
-2. **Express$$p-1$$as$$s \times 2^e $:**
-   Write$$p-1$$in the form$$s \times 2^e$$where$$s$$is an odd number. This can be done by repeatedly dividing$$p-1$$by 2 until an odd number is obtained.
+2. **Express $ p-1 $ as $ s \times 2^e $:**
+   Write $ p-1 $ in the form $ s \times 2^e $ where $ s $ is an odd number. This can be done by repeatedly dividing $ p-1 $ by 2 until an odd number is obtained.
 
-3. **Find a quadratic non-residue$$q $:**
-   Find a number$$q$$such that$$q^{\frac{p-1}{2}} \equiv -1 \pmod{p} $. This$$q$$is known as a quadratic non-residue modulo$$p $.
+3. **Find a quadratic non-residue $ q $:**
+   Find a number $ q $ such that $ q^{\frac{p-1}{2}} \equiv -1 \pmod{p} $. This $ q $ is known as a quadratic non-residue modulo $ p $.
 
 4. **Initialize variables:**
    Set:
@@ -85,9 +85,9 @@ The Shanks-Tonelli algorithm provides a way to solve this problem for any prime$
    $
 
 5. **Iteratively update variables:**
-   Loop until$$b \equiv 1 \pmod{p} $:
+   Loop until $ b \equiv 1 \pmod{p} $:
 
-   - Find the smallest integer$$m$$such that$$b^{2^m} \equiv 1 \pmod{p} $.
+   - Find the smallest integer $ m $ such that $ b^{2^m} \equiv 1 \pmod{p} $.
    - Update:
 
      $
@@ -100,7 +100,7 @@ The Shanks-Tonelli algorithm provides a way to solve this problem for any prime$
      $
 
 6. **Return the result:**
-   The value of$$x$$is the square root of$$n$$modulo$$p $.
+   The value of $ x $ is the square root of $ n $ modulo $ p $.
 
 ### Pseudocode
 
@@ -145,4 +145,4 @@ function modularSquareRoot(n, p):
     return x
 ```
 
-This pseudocode outlines the steps to find the square root of$$n$$under modulo$$p$$using the Shanks-Tonelli algorithm.
+This pseudocode outlines the steps to find the square root of $ n $ under modulo $ p $ using the Shanks-Tonelli algorithm.

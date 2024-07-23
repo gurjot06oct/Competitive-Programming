@@ -1,10 +1,10 @@
 # Integer Factorization
 
-Integer factorization involves finding the prime factors of a given integer$$N $. There are several methods for integer factorization, with different levels of complexity and efficiency. Here, I'll describe the **trial division method** and the **Pollard's rho algorithm**, providing pseudocode for both.
+Integer factorization involves finding the prime factors of a given integer $ N $. There are several methods for integer factorization, with different levels of complexity and efficiency. Here, I'll describe the **trial division method** and the **Pollard's rho algorithm**, providing pseudocode for both.
 
 ## 1. Trial Division Method
 
-The trial division method is the simplest factorization method. It involves dividing$$N$$by each integer up to$$\sqrt{N}$$to check for factors.
+The trial division method is the simplest factorization method. It involves dividing $ N $ by each integer up to $ \sqrt{N} $ to check for factors.
 
 ### Pseudocode for Trial Division:
 
@@ -34,19 +34,19 @@ function trialDivision(N):
 1. **Initial Setup:**
 
    - Start with an empty list of factors.
-   - Check if$$N$$is even and divide it by 2 until it is odd, adding 2 to the factor list each time.
+   - Check if $ N $ is even and divide it by 2 until it is odd, adding 2 to the factor list each time.
 
 2. **Iteration:**
 
-   - Iterate over odd numbers from 3 up to$$\sqrt{N} $.
-   - For each number, divide$$N$$by that number as long as it is divisible, adding the divisor to the factor list each time.
+   - Iterate over odd numbers from 3 up to $ \sqrt{N} $.
+   - For each number, divide $ N $ by that number as long as it is divisible, adding the divisor to the factor list each time.
 
 3. **Final Check:**
-   - If$$N$$is still greater than 2, it must be a prime number and is added to the factor list.
+   - If $ N $ is still greater than 2, it must be a prime number and is added to the factor list.
 
 ## 2. Pollard's Rho Algorithm
 
-Pollard's rho algorithm is a more advanced factorization method that uses a pseudo-random function to find factors of$$N $. It is particularly useful for large numbers where trial division becomes inefficient.
+Pollard's rho algorithm is a more advanced factorization method that uses a pseudo-random function to find factors of $ N $. It is particularly useful for large numbers where trial division becomes inefficient.
 
 ### Pseudocode for Pollard's Rho:
 
@@ -82,47 +82,47 @@ function gcd(a, b):
 
 1. **Initial Setup:**
 
-   - Start with a function$$f(x) = (x^2 + 1) \mod N $.
-   - Initialize two variables,$$x$$and$$y $, both set to 2, and a divisor$$d$$set to 1.
+   - Start with a function $ f(x) = (x^2 + 1) \mod N $.
+   - Initialize two variables, $ x $ and $ y $, both set to 2, and a divisor $ d $ set to 1.
 
 2. **Iteration:**
 
-   - Use a loop to apply the function$$f$$to$$x$$and$$f(f)$$to$$y $, checking the greatest common divisor (GCD) of$$|x - y|$$and$$N$$each time.
+   - Use a loop to apply the function $ f $ to $ x $ and $ f(f) $ to $ y $, checking the greatest common divisor (GCD) of $ |x - y| $ and $ N $ each time.
 
 3. **Factor Found:**
-   - If$$d$$becomes a non-trivial factor (not 1 or$$N $), return it.
-   - If$$d$$equals$$N $, the algorithm failed and may need to be retried with a different function or seed value.
+   - If $ d $ becomes a non-trivial factor (not 1 or $ N $), return it.
+   - If $ d $ equals $ N $, the algorithm failed and may need to be retried with a different function or seed value.
 
 These methods provide a starting point for integer factorization. For larger numbers or more efficient factorization, advanced methods such as the Quadratic Sieve or the General Number Field Sieve can be used.
 
 ## 3. Fermat's Factorization Method
 
-Fermat's factorization method is based on the representation of an odd integer$$N$$as the difference of two squares:
+Fermat's factorization method is based on the representation of an odd integer $ N $ as the difference of two squares:
 
-$$N = a^2 - b^2 $
+ $ N = a^2 - b^2 $
 
 This can be rewritten as:
 
-$$N = (a - b)(a + b) $
+ $ N = (a - b)(a + b) $
 
-Fermat's method involves finding such integers$$a$$and$$b $. Here's the step-by-step process along with pseudocode:
+Fermat's method involves finding such integers $ a $ and $ b $. Here's the step-by-step process along with pseudocode:
 
 ### Steps:
 
 1. **Initial setup:**
 
-   - Start with$$a$$as the ceiling of the square root of$$N $:$$a = \lceil \sqrt{N} \rceil $.
-   - Compute$$b^2 = a^2 - N $.
+   - Start with $ a $ as the ceiling of the square root of $ N $: $ a = \lceil \sqrt{N} \rceil $.
+   - Compute $ b^2 = a^2 - N $.
 
 2. **Iteration:**
 
-   - If$$b^2$$is a perfect square, then$$b = \sqrt{b^2} $.
-   - If$$b^2$$is not a perfect square, increment$$a$$by 1 and recompute$$b^2 = a^2 - N $.
-   - Repeat until$$b^2$$is a perfect square.
+   - If $ b^2 $ is a perfect square, then $ b = \sqrt{b^2} $.
+   - If $ b^2 $ is not a perfect square, increment $ a $ by 1 and recompute $ b^2 = a^2 - N $.
+   - Repeat until $ b^2 $ is a perfect square.
 
 3. **Factorization:**
-   - Once$$b^2$$is a perfect square, you have$$a$$and$$b$$such that$$N = (a - b)(a + b) $.
-   - Return the factors$$(a - b)$$and$$(a + b) $.
+   - Once $ b^2 $ is a perfect square, you have $ a $ and $ b $ such that $ N = (a - b)(a + b) $.
+   - Return the factors $ (a - b) $ and $ (a + b) $.
 
 ### Pseudocode:
 
@@ -154,37 +154,37 @@ function isPerfectSquare(x):
 
 - **Initialization:**
 
-  - Start with$$a$$as the smallest integer greater than or equal to the square root of$$N $.
-  - Compute$$b^2$$as the difference between$$a^2$$and$$N $.
+  - Start with $ a $ as the smallest integer greater than or equal to the square root of $ N $.
+  - Compute $ b^2 $ as the difference between $ a^2 $ and $ N $.
 
 - **Iteration:**
 
-  - Use a loop to increment$$a$$and recompute$$b^2$$until$$b^2$$is a perfect square.
+  - Use a loop to increment $ a $ and recompute $ b^2 $ until $ b^2 $ is a perfect square.
   - The `isPerfectSquare` function checks if a number is a perfect square by taking its square root and squaring it back.
 
 - **Factorization:**
-  - Once$$b^2$$is found to be a perfect square, compute$$b$$and use it to find the factors of$$N $.
+  - Once $ b^2 $ is found to be a perfect square, compute $ b $ and use it to find the factors of $ N $.
 
-This method works efficiently for numbers where the difference between$$a$$and$$b$$is small, but it can be slow for numbers with large factors close to$$\sqrt{N} $.
+This method works efficiently for numbers where the difference between $ a $ and $ b $ is small, but it can be slow for numbers with large factors close to $ \sqrt{N} $.
 
 ## 4. Dixon's Factorization Method
 
-Dixon's factorization method is an integer factorization algorithm that uses congruences of squares to factor a composite number$$n $. It relies on finding numbers$$x$$and$$y$$such that$$x^2 \equiv y^2 \pmod{n}$$and then using these to find factors of$$n $. The method involves using a factor base and solving a system of linear equations.
+Dixon's factorization method is an integer factorization algorithm that uses congruences of squares to factor a composite number $ n $. It relies on finding numbers $ x $ and $ y $ such that $ x^2 \equiv y^2 \pmod{n} $ and then using these to find factors of $ n $. The method involves using a factor base and solving a system of linear equations.
 
 ### Steps:
 
 1. **Select a Factor Base:**
 
-   - Choose a set of small primes that will be used to factor the numbers$$y$$(smooth numbers).
+   - Choose a set of small primes that will be used to factor the numbers $ y $ (smooth numbers).
 
 2. **Generate Relations:**
 
-   - Find several pairs$$(x, y)$$such that$$x^2 \equiv y \pmod{n}$$and$$y$$can be factored completely over the factor base.
+   - Find several pairs $ (x, y) $ such that $ x^2 \equiv y \pmod{n} $ and $ y $ can be factored completely over the factor base.
 
 3. **Build a Matrix:**
 
-   - Construct a matrix where each row corresponds to a relation$$x^2 \equiv y \pmod{n} $.
-   - The columns correspond to the primes in the factor base, and the entries are the exponents of the primes in the factorization of$$y $, taken modulo 2.
+   - Construct a matrix where each row corresponds to a relation $ x^2 \equiv y \pmod{n} $.
+   - The columns correspond to the primes in the factor base, and the entries are the exponents of the primes in the factorization of $ y $, taken modulo 2.
 
 4. **Solve the Matrix:**
 
@@ -192,10 +192,10 @@ Dixon's factorization method is an integer factorization algorithm that uses con
 
 5. **Compute the Congruence of Squares:**
 
-   - From the solution of the matrix, compute the product of the corresponding$$x$$values and the product of the corresponding$$y$$values to form a congruence of squares.
+   - From the solution of the matrix, compute the product of the corresponding $ x $ values and the product of the corresponding $ y $ values to form a congruence of squares.
 
-6. **Factorize$$n $:**
-   - Use the greatest common divisor (GCD) to find non-trivial factors of$$n $.
+6. **Factorize $ n $:**
+   - Use the greatest common divisor (GCD) to find non-trivial factors of $ n $.
 
 ### Pseudocode:
 
@@ -274,7 +274,7 @@ function solveMatrix(matrix):
 
 2. **Generate Relations:**
 
-   - Find pairs$$(x, y)$$such that$$x^2 \equiv y \pmod{n}$$and$$y$$factors over the factor base:
+   - Find pairs $ (x, y) $ such that $ x^2 \equiv y \pmod{n} $ and $ y $ factors over the factor base:
 
      $
      \begin{aligned}
@@ -311,13 +311,13 @@ function solveMatrix(matrix):
      \end{array}
      $
 
-     - Combining$$41^2$$and$$43^2 $:
+     - Combining $ 41^2 $ and $ 43^2 $:
 
      $
      41^2 \cdot 43^2 \equiv 32 \cdot 200 = 2^5 \cdot 2^3 \cdot 5^2 = 2^8 \cdot 5^2 = (2^4 \cdot 5)^2 = 80^2 \pmod{1649}.
      $
 
-5. **Factorize$$n $:**
+5. **Factorize $ n $:**
 
    - Compute:
 
@@ -332,44 +332,44 @@ function solveMatrix(matrix):
 
 ## 5. Quadratic Sieve
 
-In number theory, a cQuadratic Sieve is a congruence commonly used in integer factorization algorithms. The idea is to find numbers$$x$$and$$y$$such that:
+In number theory, a cQuadratic Sieve is a congruence commonly used in integer factorization algorithms. The idea is to find numbers $ x $ and $ y $ such that:
 
-$$x^2 \equiv y^2 \pmod{n} $
+ $ x^2 \equiv y^2 \pmod{n} $
 
-$$x \not\equiv \pm y \pmod{n} $
+ $ x \not\equiv \pm y \pmod{n} $
 
 This implies:
 
-$$x^2 - y^2 \equiv 0 \pmod{n} $
+ $ x^2 - y^2 \equiv 0 \pmod{n} $
 
-$$(x + y)(x - y) \equiv 0 \pmod{n} $
+ $ (x + y)(x - y) \equiv 0 \pmod{n} $
 
-This means that$$n$$divides the product$$(x + y)(x - y) $. Since$$x \not\equiv \pm y \pmod{n} $,$$n$$does not divide$$x + y$$nor$$x - y$$individually, ensuring that each factor contains some, but not all, factors of$$n $. The greatest common divisors of$$(x + y, n)$$and$$(x - y, n)$$will give us the factors of$$n $.
+This means that $ n $ divides the product $ (x + y)(x - y) $. Since $ x \not\equiv \pm y \pmod{n} $, $ n $ does not divide $ x + y $ nor $ x - y $ individually, ensuring that each factor contains some, but not all, factors of $ n $. The greatest common divisors of $ (x + y, n) $ and $ (x - y, n) $ will give us the factors of $ n $.
 
 ### Using a Factor Base
 
-A technique used in more advanced factorization methods, such as Dixon's factorization method, the quadratic sieve, and the general number field sieve, involves constructing a congruence of squares using a factor base. Instead of finding one pair$$x^2 \equiv y^2 \pmod{n}$$directly, we find many "relations"$$x^2 \equiv y \pmod{n} $, where$$y$$has only small prime factors (they are smooth numbers). By multiplying some of them together, we get a square on the right-hand side.
+A technique used in more advanced factorization methods, such as Dixon's factorization method, the quadratic sieve, and the general number field sieve, involves constructing a congruence of squares using a factor base. Instead of finding one pair $ x^2 \equiv y^2 \pmod{n} $ directly, we find many "relations" $ x^2 \equiv y \pmod{n} $, where $ y $ has only small prime factors (they are smooth numbers). By multiplying some of them together, we get a square on the right-hand side.
 
 ### Example 1: Factorizing 35
 
-1. Take$$n = 35 $.
-2. Find$$x$$and$$y $:
-  $$6^2 = 36 \equiv 1 = 1^2 \pmod{35} $
+1. Take $ n = 35 $.
+2. Find $ x $ and $ y $:
+   $ 6^2 = 36 \equiv 1 = 1^2 \pmod{35} $
 3. Factorize using GCD:
-  $$\gcd(6 - 1, 35) \cdot \gcd(6 + 1, 35) = 5 \cdot 7 = 35 $
+   $ \gcd(6 - 1, 35) \cdot \gcd(6 + 1, 35) = 5 \cdot 7 = 35 $
 
 ### Example 2: Factorizing 1649 Using Dixon's Factorization Method
 
-1. Take$$n = 1649 $.
+1. Take $ n = 1649 $.
 2. Obtain several congruences:
-  $$41^2 \equiv 32 = 2^5 \pmod{1649} $
-  $$42^2 \equiv 115 = 5 \cdot 23 \pmod{1649} $
-  $$43^2 \equiv 200 = 2^3 \cdot 5^2 \pmod{1649} $
+   $ 41^2 \equiv 32 = 2^5 \pmod{1649} $
+   $ 42^2 \equiv 115 = 5 \cdot 23 \pmod{1649} $
+   $ 43^2 \equiv 200 = 2^3 \cdot 5^2 \pmod{1649} $
 3. Multiply congruences to get a square:
-  $$32 \cdot 200 = 2^{5+3} \cdot 5^2 = 2^8 \cdot 5^2 = (2^4 \cdot 5)^2 = 80^2 $
-  $$32 \cdot 200 = 80^2 \equiv 41^2 \cdot 43^2 \equiv 114^2 \pmod{1649} $
-4. Use values of$$80$$and$$114$$to get factors:
-  $$\gcd(114 - 80, 1649) \cdot \gcd(114 + 80, 1649) = 17 \cdot 97 = 1649 $
+   $ 32 \cdot 200 = 2^{5+3} \cdot 5^2 = 2^8 \cdot 5^2 = (2^4 \cdot 5)^2 = 80^2 $
+   $ 32 \cdot 200 = 80^2 \equiv 41^2 \cdot 43^2 \equiv 114^2 \pmod{1649} $
+4. Use values of $ 80 $ and $ 114 $ to get factors:
+   $ \gcd(114 - 80, 1649) \cdot \gcd(114 + 80, 1649) = 17 \cdot 97 = 1649 $
 
 ### Pseudocode for Finding Congruences of Squares Using a Factor Base
 
@@ -416,28 +416,28 @@ This method leverages linear algebra to find congruences of squares efficiently,
 
 ## 6. Pollard's p − 1 Algorithm
 
-Pollard's$$p - 1$$algorithm is a number theory-based integer factorization algorithm that exploits the properties of the group of units modulo a composite number$$n $. It is particularly effective when$$n$$has a prime factor$$p$$such that$$p - 1$$is smooth, i.e., it has only small prime factors.
+Pollard's $ p - 1 $ algorithm is a number theory-based integer factorization algorithm that exploits the properties of the group of units modulo a composite number $ n $. It is particularly effective when $ n $ has a prime factor $ p $ such that $ p - 1 $ is smooth, i.e., it has only small prime factors.
 
 ### Steps:
 
-1. **Choose a Bound$$B $:**
+1. **Choose a Bound $ B $:**
 
-   - This bound$$B$$is used to control the smoothness of$$p - 1 $.
+   - This bound $ B $ is used to control the smoothness of $ p - 1 $.
 
-2. **Select a Random Base$$a $:**
+2. **Select a Random Base $ a $:**
 
-   - Choose a random integer$$a$$such that$$1 < a < n $.
+   - Choose a random integer $ a $ such that $ 1 < a < n $.
 
-3. **Compute$$a^{k!} \mod n $:**
+3. **Compute $ a^{k!} \mod n $:**
 
-   - For each prime$$q$$up to$$B $, compute$$a^{q^k} \mod n $, where$$k$$is the largest integer such that$$q^k \leq B $.
+   - For each prime $ q $ up to $ B $, compute $ a^{q^k} \mod n $, where $ k $ is the largest integer such that $ q^k \leq B $.
 
 4. **Compute GCD:**
 
-   - Compute$$\gcd(a^{M} - 1, n) $, where$$M$$is the product of all$$q^k$$computed in the previous step.
-   - If the GCD is a non-trivial factor of$$n $, then return it.
+   - Compute $ \gcd(a^{M} - 1, n) $, where $ M $ is the product of all $ q^k $ computed in the previous step.
+   - If the GCD is a non-trivial factor of $ n $, then return it.
 
-5. **If no factor is found, increase$$B$$and repeat.**
+5. **If no factor is found, increase $ B $ and repeat.**
 
 ### Pseudocode:
 
@@ -479,32 +479,32 @@ function smallPrimesUpTo(B):
     return primes
 ```
 
-### Example: Factorizing$$n = 1387$$with$$B = 5 $
+### Example: Factorizing $ n = 1387 $ with $ B = 5 $
 
-1. **Choose$$B = 5 $.**
-2. **Select a random base$$a $:**
-   - Let$$a = 2 $.
-3. **Compute$$M $:**
+1. **Choose $ B = 5 $.**
+2. **Select a random base $ a $:**
+   - Let $ a = 2 $.
+3. **Compute $ M $:**
    - For small primes up to 5:
-     -$$2^2 = 4$$(since$$2^2 \leq 5 $)
-     -$$3^1 = 3$$(since$$3^1 \leq 5 $)
-     -$$5^1 = 5$$(since$$5^1 \leq 5 $)
-   -$$M = 4 \cdot 3 \cdot 5 = 60 $.
-4. **Compute$$a^M \mod n $:**
-   -$$2^{60} \mod 1387 $:
-     - Using modular exponentiation:$$2^{60} \mod 1387 = 307 $.
+     - $ 2^2 = 4 $ (since $ 2^2 \leq 5 $)
+     - $ 3^1 = 3 $ (since $ 3^1 \leq 5 $)
+     - $ 5^1 = 5 $ (since $ 5^1 \leq 5 $)
+   - $ M = 4 \cdot 3 \cdot 5 = 60 $.
+4. **Compute $ a^M \mod n $:**
+   - $ 2^{60} \mod 1387 $:
+     - Using modular exponentiation: $ 2^{60} \mod 1387 = 307 $.
 5. **Compute GCD:**
-   -$$\gcd(307 - 1, 1387) = \gcd(306, 1387) = 17 $.
+   - $ \gcd(307 - 1, 1387) = \gcd(306, 1387) = 17 $.
 
 Thus, 17 is a non-trivial factor of 1387.
 
-### Explanation of Pollard's$$p - 1$$Algorithm:
+### Explanation of Pollard's $ p - 1 $ Algorithm:
 
-- The algorithm is effective when$$p - 1$$(where$$p$$is a prime factor of$$n $) is smooth.
-- By exponentiating$$a$$to a large power$$M$$composed of small primes and their powers, we are leveraging the group structure of $\mathbb{Z}_p^*$$where the order of$$a$$modulo$$p$$divides$$p - 1 $.
-- The GCD step helps to reveal a non-trivial factor of$$n $.
+- The algorithm is effective when $ p - 1 $ (where $ p $ is a prime factor of $ n $) is smooth.
+- By exponentiating $ a $ to a large power $ M $ composed of small primes and their powers, we are leveraging the group structure of $\mathbb{Z}_p^* $ where the order of $ a $ modulo $ p $ divides $ p - 1 $.
+- The GCD step helps to reveal a non-trivial factor of $ n $.
 
-Pollard's$$p - 1$$algorithm is simple and can be quite powerful, especially for numbers with prime factors having smooth$$p - 1$$values.
+Pollard's $ p - 1 $ algorithm is simple and can be quite powerful, especially for numbers with prime factors having smooth $ p - 1 $ values.
 
 ## 7. Segmented Sieve
 
@@ -513,7 +513,7 @@ Segmented Sieve is an optimization of the Sieve of Eratosthenes algorithm used t
 ### Steps for Segmented Sieve
 
 1. **Use Simple Sieve to Find Small Primes:**
-   - Find all primes up to $\sqrt{R}$$using the simple Sieve of Eratosthenes.
+   - Find all primes up to $\sqrt{R} $ using the simple Sieve of Eratosthenes.
 2. **Mark Non-Primes in the Segment:**
    - Use the primes from the simple sieve to mark non-prime numbers in the range `[L, R]`.
 
@@ -572,7 +572,7 @@ print(primesInRange)
    - Collect and return all primes up to `limit`.
 
 2. **segmentedSieve(L, R):**
-   - Compute `limit` as $\sqrt{R}$$and find all primes up to `limit` using `simpleSieve`.
+   - Compute `limit` as $\sqrt{R} $ and find all primes up to `limit` using `simpleSieve`.
    - Create an array `isPrime` to mark the primality of numbers in the range `[L, R]`.
    - For each prime from `simpleSieve`, mark its multiples within the range `[L, R]` as non-prime.
    - Collect and return all numbers in the range `[L, R]` that remain marked as prime.
