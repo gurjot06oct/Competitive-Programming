@@ -37,6 +37,7 @@ int main()
                 right = mid - 1;
             }
         }
+        cout<<left<<" "<<mid<<" "<<right<<endl;
     }
     cout<<ans<<endl;
 
