@@ -60,8 +60,6 @@
 48. Rearranging an Array by Positive and Negative Numbers
 49. Finding the Next Permutation
 50. Longest consecutive sequence in an array
-51. Find the First and Last Occurrence of an Element using Binary Search
-52. Search Insert Position in Array
 54. Searching for a single non-duplicate element in a sorted array
 55. Finding a peak element in an array
 

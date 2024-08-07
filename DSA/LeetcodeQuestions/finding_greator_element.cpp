@@ -8,7 +8,6 @@ int next(int *arr, int target, int end)
     int ans = -1;
     while (start <= end)
     {
-                cout<<start<<" "<<end<<" : "<<ans<<endl;
         int mid = start+(end-start) / 2;
 
         if (arr[mid] <= target)
