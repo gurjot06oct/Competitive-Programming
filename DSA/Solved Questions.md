@@ -4,9 +4,7 @@
 1. Trapping Rain Water
 2. 3Sum
 3. 4Sum
-4. Container With Most Water
 5. 3 Pointers Problem
-6. Subarrays sum exactly equal k
 
 
 - **2D Arrays:**
@@ -31,9 +29,6 @@
 
 
 - **Arrays and Elements:**
-22. Finding Missing and Repeating Elements
-23. Count Frequency of Elements
-24. Majority Element
 25. Finding the longest palindrome in a string
 26. Sorted the words in a sentence
 27. Added two strings together
@@ -55,12 +50,8 @@
 
 - **Miscellaneous Problems:**
 39. Aggressive Cows
-40. Finding the second largest element in an array (CodeStudio)
-41. Removing duplicates from an array (LeetCode)
-42. Rotating an array by k places
 43. Finding the single number out of duplicates
 44. Moving zeros to the end of an array
-45. Longest subarray with a given sum k
 
 
 - **Advanced Algorithms:**
@@ -71,7 +62,6 @@
 50. Longest consecutive sequence in an array
 51. Find the First and Last Occurrence of an Element using Binary Search
 52. Search Insert Position in Array
-53. Search an Element in a Rotated Sorted Array
 54. Searching for a single non-duplicate element in a sorted array
 55. Finding a peak element in an array
 

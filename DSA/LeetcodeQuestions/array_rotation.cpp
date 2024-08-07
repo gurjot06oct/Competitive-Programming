@@ -7,24 +7,22 @@ int gcd(int a, int b)
     else
         return gcd(b, a % b);
 }
+void swap(int &a, int &b)
+{
+    int temp = a;
+    a = b;
+    b = temp;
+}
 void leftRotate(int arr[], int d, int n)
 {
-    d = d % n;  // Handle cases where d >= n
+    d = d % n;
     int g_c_d = gcd(d, n);
     for (int i = 0; i < g_c_d; i++) {
-        int temp = arr[i];
-        int j = i;
-
-        while (1) { 
-            int k = j + d;
-            if (k >= n)
-                k = k - n;
-            if (k == i)
-                break;
-            arr[j] = arr[k];
-            j = k;
+        for (int j = 1; j <= n/g_c_d; j++)
+        {
+            swap(arr[i],arr[(i+j*d)%n]);
         }
-        arr[j] = temp;
+        
     }
 }
 void printArray(int arr[], int size)
