@@ -29,8 +29,6 @@ int main()
 
     vector<int> candidates{2, 3, 5};
     int target = 8;
-
-    sort(candidates.begin(), candidates.end());
     vector<vector<int>> res;
     vector<int> subarr;
     combinationgenerator(candidates, res, subarr, candidates.size(), target, 0, 0);

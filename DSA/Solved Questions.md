@@ -6,27 +6,12 @@
 3. 4Sum
 5. 3 Pointers Problem
 
-
-- **2D Arrays:**
-7. Basics
-8. Addition
-9. Max row/column sum
-10. Transpose of Matrix
-11. Spiral Matrix
-12. Print Matrix in Snake Pattern
-13. Wave Form
-14. Print Diagonally
-15. Print Matrix in Diagonal Pattern
-16. 2D Array Rotation
-
-
 - **Binary Search and Matrix:**
 17. Binary Search in 2D Arrays
 18. Search in a Sorted Row-Column Wise Matrix
 19. Count Zeros in a Sorted Matrix
 20. Row with Max 1s
 21. Binary Search in a 2D Array (Decreasing Order)
-
 
 - **Arrays and Elements:**
 25. Finding the longest palindrome in a string
@@ -38,7 +23,6 @@
 31. Finding the longest substring without repeating characters
 32. Finding the smallest window containing 0, 1, and 2
 
-
 - **String Algorithms:**
 33. The KMP (Knuth-Morris-Pratt) algorithm (worked on and optimized)
 34. Finding the index of the first occurrence in a string (using brute force and KMP algorithm)
@@ -47,12 +31,10 @@
 37. Studied string encoding techniques
 38. Making a binary string "beautiful" with alternating 0s and 1s
 
-
 - **Miscellaneous Problems:**
 39. Aggressive Cows
 43. Finding the single number out of duplicates
 44. Moving zeros to the end of an array
-
 
 - **Advanced Algorithms:**
 46. Moore's Voting Algorithm (for finding the majority element)
@@ -62,7 +44,6 @@
 50. Longest consecutive sequence in an array
 54. Searching for a single non-duplicate element in a sorted array
 55. Finding a peak element in an array
-
 
 - **Linked Lists:**
 56. Deleting the Middle Node of a Linked List
