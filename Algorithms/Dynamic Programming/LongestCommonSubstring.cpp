@@ -30,7 +30,6 @@ int main()
             }
             cout<<dp[i][j]<<"endl";
         }
-
     }
     for (int i = k-(max-1); i <= k; i++)
     {   
