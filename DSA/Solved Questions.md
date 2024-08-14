@@ -2,9 +2,6 @@
 
 - **Arrays:**
 1. Trapping Rain Water
-2. 3Sum
-3. 4Sum
-5. 3 Pointers Problem
 
 - **Binary Search and Matrix:**
 17. Binary Search in 2D Arrays
