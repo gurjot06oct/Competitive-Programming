@@ -4,6 +4,7 @@ using namespace std;
 struct Node {
     int data;
     Node* next;
+    Node(int val): data(val),next(nullptr){}
 };
 
 class LinkedList {
@@ -11,20 +12,45 @@ private:
     Node* head;
 public:
     LinkedList() : head(nullptr) {}
-    
+        LinkedList(int *arr, int size)
+    {
+        this->fromArray(arr, size);
+    }
+    // From array
+    void fromArray(int *arr, int size)
+    {
+        if (head == nullptr)
+        {
+            if (size > 0)
+            {
+                head = new Node(arr[0]);
+                Node *temp = head;
+                for (int i = 1; i < size; i++)
+                {
+                    temp = temp->next = new Node(arr[i]);
+                }
+            }
+            else
+            {
+                cout << "Invalid size!" << endl;
+            }
+        }
+        else
+        {
+            cout << "Linked List must be Empty." << endl;
+        }
+    }
+
     // Insert at the beginning
     void insertAtBeginning(int value) {
-        Node* newNode = new Node();
-        newNode->data = value;
+        Node* newNode = new Node(value);
         newNode->next = head;
         head = newNode;
     }
     
     // Insert at the end
     void insertAtEnd(int value) {
-        Node* newNode = new Node();
-        newNode->data = value;
-        newNode->next = nullptr;
+        Node* newNode = new Node(value);
         if (head == nullptr) {
             head = newNode;
         } else {
@@ -43,8 +69,7 @@ public:
             return;
         }
 
-        Node* newNode = new Node();
-        newNode->data = value;
+        Node* newNode = new Node(value);
 
         if (position == 0) {
             newNode->next = head;

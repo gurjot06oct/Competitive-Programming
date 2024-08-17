@@ -72,7 +72,6 @@ int main() {
     cout << "Stack size is: " << stack.size() << endl;
 
     stack.pop();
-    stack.pop();
 
     if (stack.isEmpty()) {
         cout << "Stack is empty" << endl;

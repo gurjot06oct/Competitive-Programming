@@ -1,16 +1,18 @@
 #include <iostream>
 using namespace std;
 
-class Deque {
+class Deque
+{
 private:
-    int* arr;
+    int *arr;
     int front;
     int rear;
     int capacity;
     int count;
 
 public:
-    Deque(int size) {
+    Deque(int size)
+    {
         arr = new int[size];
         capacity = size;
         front = -1;
@@ -18,22 +20,30 @@ public:
         count = 0;
     }
 
-    ~Deque() {
+    ~Deque()
+    {
         delete[] arr;
     }
 
     // Add an element to the front of the deque
-    void insertFront(int value) {
-        if (isFull()) {
+    void insertFront(int value)
+    {
+        if (isFull())
+        {
             cout << "Deque overflow!" << endl;
             return;
         }
-        if (isEmpty()) {
+        if (isEmpty())
+        {
             front = 0;
             rear = 0;
-        } else if (front == 0) {
+        }
+        else if (front == 0)
+        {
             front = capacity - 1;
-        } else {
+        }
+        else
+        {
             front = front - 1;
         }
         arr[front] = value;
@@ -41,17 +51,24 @@ public:
     }
 
     // Add an element to the rear of the deque
-    void insertRear(int value) {
-        if (isFull()) {
+    void insertRear(int value)
+    {
+        if (isFull())
+        {
             cout << "Deque overflow!" << endl;
             return;
         }
-        if (isEmpty()) {
+        if (isEmpty())
+        {
             front = 0;
             rear = 0;
-        } else if (rear == capacity - 1) {
+        }
+        else if (rear == capacity - 1)
+        {
             rear = 0;
-        } else {
+        }
+        else
+        {
             rear = rear + 1;
         }
         arr[rear] = value;
@@ -59,42 +76,50 @@ public:
     }
 
     // Remove an element from the front of the deque
-    void deleteFront() {
-        if (isEmpty()) {
+    void deleteFront()
+    {
+        if (isEmpty())
+        {
             cout << "Deque underflow!" << endl;
             return;
         }
-        if (front == rear) {
+        if (front == rear)
+        {
             front = -1;
-            rear = -1;
-        } else if (front == capacity - 1) {
-            front = 0;
-        } else {
-            front = front + 1;
+            rear = 0;
+        }
+        else
+        {
+            front = (front + 1) % capacity;
         }
         count--;
     }
 
     // Remove an element from the rear of the deque
-    void deleteRear() {
-        if (isEmpty()) {
+    void deleteRear()
+    {
+        if (isEmpty())
+        {
             cout << "Deque underflow!" << endl;
             return;
         }
-        if (front == rear) {
+        if (front == rear)
+        {
             front = -1;
-            rear = -1;
-        } else if (rear == 0) {
-            rear = capacity - 1;
-        } else {
-            rear = rear - 1;
+            rear = 0;
+        }
+        else
+        {
+            rear = (capacity + rear - 1) % capacity;
         }
         count--;
     }
 
     // Get the front element
-    int getFront() const {
-        if (isEmpty()) {
+    int getFront() const
+    {
+        if (isEmpty())
+        {
             cout << "Deque is empty!" << endl;
             return -1;
         }
@@ -102,8 +127,10 @@ public:
     }
 
     // Get the rear element
-    int getRear() const {
-        if (isEmpty()) {
+    int getRear() const
+    {
+        if (isEmpty())
+        {
             cout << "Deque is empty!" << endl;
             return -1;
         }
@@ -111,22 +138,26 @@ public:
     }
 
     // Check if the deque is full
-    bool isFull() const {
+    bool isFull() const
+    {
         return count == capacity;
     }
 
     // Check if the deque is empty
-    bool isEmpty() const {
+    bool isEmpty() const
+    {
         return count == 0;
     }
 
     // Get the size of the deque
-    int size() const {
+    int size() const
+    {
         return count;
     }
 };
 
-int main() {
+int main()
+{
     Deque deque(5);
 
     deque.insertRear(10);
