@@ -10,9 +10,10 @@ int main()
     unordered_map<char, int> mapped;
     int left = 0, max = 1;
     mapped[s[0]] = 0;
+    for (int right = 1; right < s.length(); right++){}
     for (int right = 1; right < s.length(); right++)
     {
-        if (mapped.find(s[right]) == mapped.end())
+        if (!mapped.count(s[right]))
         {
             mapped[s[right]] = -1;
         }

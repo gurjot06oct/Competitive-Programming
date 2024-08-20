@@ -1,26 +1,32 @@
 #include <iostream>
-#include<string>
+#include <string>
 using namespace std;
 
 int main()
 {
-    std::string s= "abcdefghijklmnopqrstuvwxyz";
-    int numRows = 5;
+    std::string s = "ABC";
+    int numRows = 3;
+    if (numRows == 1)
+    {
+        return 0;
+    }
+    int diff = 2 * (numRows - 1), size = s.size(),temp,l=0;
+    string res(s.size(),' ');
     for (int i = 0; i < numRows; i++)
     {
-        for (int j = i; j < s.size();j+=2*(numRows-1))
+        for (int j = i; j < size; j += diff)
         {
-            cout<<s[j];
-            for (int k = 0; k < numRows-2-i; k++)
-            {
-                cout<<" ";
+            res[l++] = s[j];
+            if(i==0 || i== numRows-1){
+                continue;
             }
-            for (int k = 0; k < i-1; k++)
+            temp= (j + diff - 2 * i);
+            if (temp < size)
             {
-                cout<<" ";
+                res[l++] = s[temp];
             }
         }
-        cout<<endl;
     }
+    cout << res << endl;
     return 0;
 }
