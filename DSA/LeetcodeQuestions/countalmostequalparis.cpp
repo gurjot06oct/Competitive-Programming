@@ -3,31 +3,43 @@ using namespace std;
 class Solution
 {
 public:
-    bool almostequal(int x, int y)
+    bool almostequal(int a, int b)
     {
-        string s1 = to_string(x), s2 = to_string(y);
-        int n = s1.length(), m = s2.length();
-        int maxLen = max(n, m);
-        while (n != maxLen)
+        int aa = -1, bb = -1;
+        while (a > 0 || b > 0)
         {
-            s1 = "0" + s1;
-            n++;
+            if (a % 10 == b % 10)
+            {
+                a /= 10;
+                b /= 10;
+            }
+            else if (aa == -1)
+            {
+                aa = a % 10;
+                bb = b % 10;
+                a /= 10;
+                b /= 10;
+            }
+            else if (aa != -2)
+            {
+                if (aa == b % 10 && bb == a % 10)
+                {
+                    aa = -2;
+                    bb = -2;
+                    a /= 10;
+                    b /= 10;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
-        while (m != maxLen)
-        {
-            s2 = "0" + s2;
-            m++;
-        }
-        int diff = 0;
-
-        unordered_map<int, int> um1, um2;
-        for (int i = 0; i < 6; i++)
-        {
-            diff += s1[i] != s2[i];
-            um1[s1[i]]++;
-            um2[s2[i]]++;
-        }
-        return diff <= 2 && um1 == um2;
+        return aa < 0;
     }
     int countPairs(vector<int> &nums)
     {
