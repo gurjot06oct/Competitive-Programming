@@ -5,64 +5,65 @@ bool isValid(string s)
     ios::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    int t1 = 0, t2 = 0, t3 = 0;
+    int len = s.length(), i = -1;
+    string temp(len, ' ');
     for (char c : s)
     {
-        if (c == ')')
+        switch (c)
         {
-            if (t2 == 0 && t3 == 0)
+        case ')':
+            if (i != -1 && temp[i] == '(')
             {
-                t1--;
+                i--;
             }
             else
             {
                 return false;
             }
-        }
-        else if (c == '(')
-        {
-            t1++;
-        }
-        if (c == '}')
-        {
-            if (t1 == 0 && t3 == 0)
+            break;
+
+        case '(':
+            temp[++i] = c;
+            break;
+
+        case '}':
+            if (i != -1 && temp[i] == '{')
             {
-                t2--;
+                i--;
             }
             else
             {
                 return false;
             }
-        }
-        else if (c == '{')
-        {
-            t2++;
-        }
-        if (c == ']')
-        {
-            if (t2 == 0 && t1 == 0)
+            break;
+
+        case '{':
+            temp[++i] = c;
+            break;
+
+        case ']':
+            if (i != -1 && temp[i] == '[')
             {
-                t3--;
+                i--;
             }
             else
             {
                 return false;
             }
-        }
-        else if (c == '[')
-        {
-            t3++;
-        }
-        if (t1 < 0 || t2 < 0 || t3 < 0)
-        {
-            return false;
+            break;
+
+        case '[':
+            temp[++i] = c;
+            break;
+
+        default:
+            break;
         }
     }
-
-    return true;
+    return i == -1 ? true : false;
 }
 
 int main()
 {
-    cout << tocheck() << endl;
+    cout << isValid("()[]{}") << endl;
 }
