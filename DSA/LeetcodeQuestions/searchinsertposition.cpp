@@ -10,7 +10,6 @@ int searchinsertion(int *nums, int target, int right)
     {
         mid = (right + left) / 2;
         if (nums[mid] == target){
-
             ans= mid;
             break;
         }
