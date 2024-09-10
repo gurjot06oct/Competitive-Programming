@@ -1,27 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
-class Solution
-{
+class Solution {
 public:
-    int numIdenticalPairs(const vector<int> &nums)
-    {
+    int uniquePaths(int m, int n) {
         ios::sync_with_stdio(0);
         cin.tie(0);
         cout.tie(0);
-        int count = 0, n = nums.size();
-        for (int i = 0; i < n; i++)
-        {
-            for (int j = i + 1; j < n; j++)
-            {
-                count += (nums[i] == nums[j]);
+        int* dp =new int[n] { 1 };
+        dp[0] = 1;
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                dp[j] += dp[j - 1];
             }
         }
-        return count;
+
+        return dp[n - 1];
     }
 };
 int main()
 {
     Solution a;
-    int res = a.numIdenticalPairs({1, 2, 3, 1, 1, 3});
+    int res = a.uniquePaths(3,4);
     cout << res << endl;
 }
