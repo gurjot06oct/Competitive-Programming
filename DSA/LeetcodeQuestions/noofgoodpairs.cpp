@@ -2,25 +2,25 @@
 using namespace std;
 class Solution {
 public:
-    int uniquePaths(int m, int n) {
+    int numIdenticalPairs(vector<int> nums)
+    {
         ios::sync_with_stdio(0);
         cin.tie(0);
         cout.tie(0);
-        int* dp =new int[n] { 1 };
-        dp[0] = 1;
-
-        for (int i = 0; i < m; i++) {
-            for (int j = 1; j < n; j++) {
-                dp[j] += dp[j - 1];
+        int count = 0, n = nums.size();
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = i + 1; j < n; j++)
+            {
+                count += (nums[i] == nums[j]);
             }
         }
-
-        return dp[n - 1];
+        return count;
     }
 };
 int main()
 {
     Solution a;
-    int res = a.uniquePaths(3,4);
+    int res = a.numIdenticalPairs({1,2,3,1,1,3});
     cout << res << endl;
 }
