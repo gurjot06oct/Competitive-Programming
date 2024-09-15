@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <functional>
+using namespace std;
 class TreeNode
 {
 public:
@@ -77,14 +78,14 @@ TreeNode *deleteNode(TreeNode *root, int key)
 
     return root;
 }
-TreeNode *sortedArrayToBST(std::vector<int> &nums)
+TreeNode *sortedArrayToBST(vector<int> &nums)
 {
     if (nums.empty())
     {
         return nullptr;
     }
 
-    std::function<TreeNode *(int, int)> convert = [&](int left, int right) -> TreeNode *
+    function<TreeNode *(int, int)> convert = [&](int left, int right) -> TreeNode *
     {
         if (left > right)
         {
@@ -107,7 +108,7 @@ void inorderTraversal(TreeNode *root)
         return;
 
     inorderTraversal(root->left);
-    std::cout << root->value << " ";
+    cout << root->value << " ";
     inorderTraversal(root->right);
 }
 
@@ -125,29 +126,30 @@ int main()
     root->right = new TreeNode(8);
     root->left->left = new TreeNode(2);
     root->left->right = new TreeNode(4);
-    root->right->right = new TreeNode(9);
+    root->right->right = new TreeNode(10);
+    root->right->right->left=new TreeNode(9);
 
     // Perform inorder traversal before deletion
-    std::cout << "Inorder traversal before deletion: ";
+    cout << "Inorder traversal before deletion: ";
     inorderTraversal(root);
-    std::cout << std::endl;
+    cout << endl;
 
     // Delete node with value 3
-    root = deleteNode(root, 3);
+    root = deleteNode(root, 8);
 
     // Perform inorder traversal after deletion
-    std::cout << "Inorder traversal after deletion: ";
+    cout << "Inorder traversal after deletion: ";
     inorderTraversal(root);
-    std::cout << std::endl;
+    cout << endl;
 
     // Clean up memory (not shown here for brevity)
 
-    std::vector<int> sortedArray = {-10, -3, 0, 5, 9};
+    vector<int> sortedArray = {-10, -3, 0, 5, 9};
     root = sortedArrayToBST(sortedArray);
 
     // Test the tree by printing it in-order
-    std::cout << "In-order traversal of the constructed BST: ";
+    cout << "In-order traversal of the constructed BST: ";
     inorderTraversal(root);
-    std::cout << std::endl;
+    cout << endl;
     return 0;
 }

@@ -1,6 +1,6 @@
 #include <iostream>
 #include <queue>
-#include<stack>
+#include <stack>
 using namespace std;
 
 struct Node
@@ -27,13 +27,16 @@ void inOrder(Node *root)
     }
 }
 
-void inOrderIterative(Node* root) {
-    std::stack<Node*> auxStack;
-    Node* current = root;
+void inOrderIterative(Node *root)
+{
+    stack<Node *> auxStack;
+    Node *current = root;
 
-    while (current != nullptr || !auxStack.empty()) {
+    while (current != nullptr || !auxStack.empty())
+    {
         // Reach the leftmost node of the current node
-        while (current != nullptr) {
+        while (current != nullptr)
+        {
             auxStack.push(current);
             current = current->left;
         }
@@ -43,7 +46,7 @@ void inOrderIterative(Node* root) {
         auxStack.pop();
 
         // Visit the node
-        std::cout << current->data << " ";
+        cout << current->data << " ";
 
         // Go to the right subtree
         current = current->right;
@@ -59,51 +62,62 @@ void preOrder(Node *root)
         preOrder(root->right);
     }
 }
-void preOrderIterative(Node* root) {
-    if (root == nullptr) return;
+void preOrderIterative(Node *root)
+{
+    if (root == nullptr)
+        return;
 
-    std::stack<Node*> auxStack;
-    Node* node;
+    stack<Node *> auxStack;
+    Node *node;
     auxStack.push(root);
 
-    while (!auxStack.empty()) {
+    while (!auxStack.empty())
+    {
         node = auxStack.top();
         auxStack.pop();
 
         // Visit the node
-        std::cout << node->data << " ";
+        cout << node->data << " ";
 
         // Push right child first so that left child is processed first
-        if (node->right != nullptr) {
+        if (node->right != nullptr)
+        {
             auxStack.push(node->right);
         }
 
-        if (node->left != nullptr) {
+        if (node->left != nullptr)
+        {
             auxStack.push(node->left);
         }
     }
 }
-void preorderTraversalOptimal(Node* root) {
-    if (root == nullptr) return;
+void preorderTraversalOptimal(Node *root)
+{
+    if (root == nullptr)
+        return;
 
-    std::stack<Node*> auxStack; // Stack to store right children
-    Node* current = root;
+    stack<Node *> auxStack; // Stack to store right children
+    Node *current = root;
 
     // Run till stack is not empty or current is not NULL
-    while (!auxStack.empty() || current != nullptr) {
+    while (!auxStack.empty() || current != nullptr)
+    {
         // Print left children while they exist and keep pushing right into the stack
-        while (current != nullptr) {
-            std::cout << current->data << " ";
-            
-            if (current->right != nullptr) {
+        while (current != nullptr)
+        {
+            cout << current->data << " ";
+
+            if (current->right != nullptr)
+            {
                 auxStack.push(current->right);
             }
-            
+
             current = current->left;
         }
-        
+
         // We reach when current is NULL, so we take out a right child from the stack
-        if (!auxStack.empty()) {
+        if (!auxStack.empty())
+        {
             current = auxStack.top();
             auxStack.pop();
         }
@@ -119,60 +133,73 @@ void postOrder(Node *root)
     }
 }
 
-void postOrderTraversal_twoStack(Node* root) {
-    if (root == nullptr) return;
+void postOrderTraversal_twoStack(Node *root)
+{
+    if (root == nullptr)
+        return;
 
-    std::stack<Node*> stack1, stack2;
+    stack<Node *> stack1, stack2;
 
     // Push root to the first stack
     stack1.push(root);
 
     // Run while the first stack is not empty
-    while (!stack1.empty()) {
+    while (!stack1.empty())
+    {
         // Pop a node from the first stack and push it onto the second stack
-        Node* node = stack1.top();
+        Node *node = stack1.top();
         stack1.pop();
         stack2.push(node);
 
         // Push left and right children of the popped node onto the first stack
-        if (node->left) {
+        if (node->left)
+        {
             stack1.push(node->left);
         }
-        if (node->right) {
+        if (node->right)
+        {
             stack1.push(node->right);
         }
     }
 
     // The second stack contains the nodes in postorder, so we print them
-    while (!stack2.empty()) {
-        Node* node = stack2.top();
+    while (!stack2.empty())
+    {
+        Node *node = stack2.top();
         stack2.pop();
-        std::cout << node->data << " ";
+        cout << node->data << " ";
     }
 }
-void postOrderTraversal_oneStack(Node* root) {
-    if (root == nullptr) return;
+void postOrderTraversal_oneStack(Node *root)
+{
+    if (root == nullptr)
+        return;
 
-    std::stack<Node*> st;
-    Node* current = root;
-    Node* lastVisited = nullptr;
+    stack<Node *> st;
+    Node *current = root;
+    Node *lastVisited = nullptr;
 
-    while (!st.empty() || current != nullptr) {
+    while (!st.empty() || current != nullptr)
+    {
         // Go to the leftmost node
-        while (current != nullptr) {
+        while (current != nullptr)
+        {
             st.push(current);
             current = current->left;
         }
 
         // Peek the node at the top of the stack
-        Node* topNode = st.top();
+        Node *topNode = st.top();
 
         // If the right child exists and traversing from the left child, move to the right child
-        if (topNode->right != nullptr && lastVisited != topNode->right) {
+        if (topNode->right != nullptr && lastVisited != topNode->right)
+        {
             current = topNode->right;
-        } else {
+        }
+        else
+        {
             // Visit the node
-            std::cout << topNode->data << " ";
+            cout << topNode->data << " ";
             lastVisited = topNode;
             st.pop();
         }
@@ -196,6 +223,37 @@ void levelOrder(Node *root)
         if (current->right != nullptr)
             q.push(current->right);
     }
+}
+
+int height(Node *root)
+{
+    if (!root)
+        return 0;
+    return 1 + max(height(root->left), height(root->right));
+}
+
+// Function to find the height of the tree
+int height(Node* root, int &diameter) {
+    if (root == nullptr) {
+        return 0;
+    }
+
+    // Recursively get heights of left and right subtrees
+    int leftHeight = height(root->left, diameter);
+    int rightHeight = height(root->right, diameter);
+
+    // Update the diameter at this node
+    diameter = max(diameter, leftHeight + rightHeight + 1);
+
+    // Return the height of the tree at this node
+    return 1 + max(leftHeight, rightHeight);
+}
+
+// Function to calculate the diameter of the tree
+int findDiameter(Node* root) {
+    int diameter = 0;
+    height(root, diameter);
+    return diameter;
 }
 
 // Insertion
@@ -255,7 +313,6 @@ int main()
     root->left->left->left = new Node(10);
     root->right->right->right = new Node(90);
     root->right->left->right = new Node(65);
-
     //
     //        50
     //       /  \
@@ -264,16 +321,6 @@ int main()
     //  20  40  60  80
     //  /        \   \
     // 10        65  90
-
-    inOrderIterative(root); // 10 20 30 40 50 60 65 70 80 90
-    cout << endl;
-    preorderTraversalOptimal(root); // 50 30 20 10 40 70 60 65 80 90
-    cout << endl;
-    postOrderTraversal_oneStack(root); // 10 20 40 30 65 60 90 80 70 50
-    cout << endl;
-    levelOrder(root); // 50 30 70 20 40 60 80 10 65 90
-    cout << endl;
-    insert(root, 35);
-    levelOrder(root);
+    cout << findDiameter(root) << endl;
     return 0;
 }
