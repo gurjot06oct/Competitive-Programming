@@ -1,19 +1,20 @@
 #include <bits/stdc++.h>
-#include <vector>
 using namespace std;
 
 int main()
 {
-    vector<int> nums{1, 2, 3, 4, 0};
+    vector<int> nums{2,1};
 
     int ans, mid;
     int left = 0, right = nums.size() - 1;
+    if(right==0)return 0;
     while (left <= right)
     {
-
-        if (nums[mid] < nums[mid + 1])
+        mid = left + (right - left) / 2;
+        cout<<mid<<endl;
+        if (mid < nums.size() - 1 && nums[mid] < nums[mid + 1])
         {
-            ans = mid;
+            ans = mid + 1;
             left = mid + 1;
         }
         else
@@ -21,7 +22,6 @@ int main()
             right = mid - 1;
         }
     }
-    cout << nums[mid] << endl;
-    return nums[mid];
+    cout << ans << endl;
     return 0;
 }
