@@ -13,7 +13,6 @@ int main()
 {
     char A[] = {'A', 'B', 'C', 'B', 'D', 'A', 'B'};
     char B[] = {'B', 'D', 'C', 'A', 'B', 'A'};
-    char C[7];
     int dp[8][7]={0},k=0;
     for (int i = 1; i < 8; i++)
     {
