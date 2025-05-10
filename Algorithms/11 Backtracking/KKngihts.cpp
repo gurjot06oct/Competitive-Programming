@@ -38,7 +38,6 @@ public:
             for (int l = j; l < n; l++){
                 if (!matrix[k][l]){
                     mark(k, l, m, n, matrix, 1);
-                    cout<<knights<<":"<<k<<" "<<l<<endl;
                     sol[k][l] = 'K';
                     solve(result, sol, k, l, m, n, matrix, knights - 1);
                     sol[k][l] = '.';

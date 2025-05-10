@@ -2,10 +2,11 @@
 #include <vector>
 #include <algorithm>
 #include <cmath>
+using namespace std;
 
 // Function to perform bucket sort
 template <typename T>
-void bucketSort(std::vector<T>& arr) {
+void bucketSort(vector<T>& arr) {
     int n = arr.size();
     if (n == 0) return;
 
@@ -17,10 +18,10 @@ void bucketSort(std::vector<T>& arr) {
     if (range == 0) return; // all elements are equal
 
     // Use √n buckets
-    int bucketCount = std::sqrt(n);
+    int bucketCount = sqrt(n);
     if (bucketCount == 0) bucketCount = 1;
 
-    std::vector<std::vector<T>> buckets(bucketCount);
+    vector<vector<T>> buckets(bucketCount);
 
     // Put elements into buckets with normalization
     for (T num : arr) {
@@ -30,7 +31,7 @@ void bucketSort(std::vector<T>& arr) {
 
     // Sort individual buckets
     for (int i = 0; i < bucketCount; i++) {
-        std::sort(buckets[i].begin(), buckets[i].end());
+        sort(buckets[i].begin(), buckets[i].end());
     }
 
     // Concatenate all buckets into arr
@@ -44,17 +45,17 @@ void bucketSort(std::vector<T>& arr) {
 
 int main() {
     // Input array
-    std::vector<double> arr = {10011, 94, 66, 7, 21, 54, 71, 99, 0.79, 0.55, 0.78, 0.76, 0.29, 0.03, 0.12, 0.22, 0.43};
+    vector<double> arr = {10011, 94, 66, 7, 21, 54, 71, 99, 0.79, 0.55, 0.78, 0.76, 0.29, 0.03, 0.12, 0.22, 0.43};
 
     // Perform bucket sort
     bucketSort(arr);
 
     // Output sorted array
-    std::cout << "Sorted array: ";
+    cout << "Sorted array: ";
     for (const auto& num : arr) {
-        std::cout << num << " ";
+        cout << num << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
 
     return 0;
 }

@@ -386,18 +386,20 @@ public:
 };
 
 int main() {
-    Graph g(6,true);  // Example graph with 5 vertices
+    Graph g(10,true);  // Example graph with 5 vertices
 
-    g.addEdge(5, 2);
-    g.addEdge(5, 0);
-    g.addEdge(4, 0);
-    g.addEdge(4, 1);
-    g.addEdge(2, 3);
-    g.addEdge(3, 1);
-
-    g.BFS(3);  // Perform BFS starting from vertex 0
-    g.DFS(3);  // Perform DFS starting from vertex 0
-    g.topologicalSort();
-    g.topologicalSortDeparture();
+    g.addEdge(0, 1);  //  A → B
+    g.addEdge(0, 2); //  A → C
+    g.addEdge(1, 3);  //  B → D
+    g.addEdge(2, 3);  //  C → D
+    g.addEdge(2, 4);  //  C → E
+    g.addEdge(3, 5);  //  D → F
+    g.addEdge(4, 5);  //  E → F
+    g.addEdge(5, 6);  //  F → G
+    g.addEdge(6, 7);  //  G → H
+    g.addEdge(6, 8);  //  G → I
+    g.addEdge(7, 9);  //  H → J
+    g.addEdge(8, 9);  //  I → J
+    g.allTopologicalSorts();
     return 0;
 }

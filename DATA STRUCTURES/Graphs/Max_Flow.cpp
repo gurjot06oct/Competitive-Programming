@@ -49,7 +49,7 @@ int fordFulkerson(vector<vector<int>> &graph, int s, int t) {
         maxFlow += pathFlow;
     }
     return maxFlow;
-}
+};
 
 int main() {
     vector<vector<int>> graph = {

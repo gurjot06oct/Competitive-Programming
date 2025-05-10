@@ -5,7 +5,7 @@ class Graph {
     int V;
     vector<int> *adj;
     void APUtil(int u, vector<bool> &visited, vector<int> &disc,
-                vector<int> &low, vector<int> &parent, vector<bool> &ap);
+                vector<int> &low, int parent, vector<bool> &ap);
 
 public:
     Graph(int V);
@@ -24,7 +24,7 @@ void Graph::addEdge(int v, int w) {
 }
 
 void Graph::APUtil(int u, vector<bool> &visited, vector<int> &disc,
-                   vector<int> &low, vector<int> &parent, vector<bool> &ap) {
+                   vector<int> &low, int parent, vector<bool> &ap) {
     static int time = 0;
     int children = 0;
     visited[u] = true;
@@ -33,14 +33,14 @@ void Graph::APUtil(int u, vector<bool> &visited, vector<int> &disc,
     for (int v : adj[u]) {
         if (!visited[v]) {
             children++;
-            parent[v] = u;
-            APUtil(v, visited, disc, low, parent, ap);
+            APUtil(v, visited, disc, low, u, ap);
             low[u] = min(low[u], low[v]);
-            if (parent[u] == -1 && children > 1 || parent[u] != -1  && low[v] >= disc[u]) ap[u] = true;
-        } else if (v != parent[u]) {
+            if (parent != -1  && low[v] >= disc[u]) ap[u] = true;
+        } else if (v != parent) {
             low[u] = min(low[u], disc[v]);
         }
     }
+    if(parent == -1 && children > 1) ap[u] = true;
 }
 
 void Graph::findAP() {
@@ -49,14 +49,24 @@ void Graph::findAP() {
     // low[u]: Earliest visited vertex reachable from u
     // parent[u]: Parent vertex in DFS tree
     // ap[u]: Boolean array to store articulation points
-    vector<int> disc(V, -1), low(V, -1), parent(V, -1);
+    vector<int> disc(V, -1), low(V, -1);
     vector<bool> ap(V, false);
 
     for (int i = 0; i < V; i++) {
         if (!visited[i])
-            APUtil(i, visited, disc, low, parent, ap);
+            APUtil(i, visited, disc, low, -1, ap);
     }
 
+    cout << "Discovery Points: ";
+    for (int i = 0; i < V; i++) {
+            cout << disc[i] << " ";
+    }
+    cout<<endl;
+    cout << "LOW Points: ";
+    for (int i = 0; i < V; i++) {
+            cout << low[i] << " ";
+    }
+    cout<<endl;
     cout << "Articulation Points: ";
     for (int i = 0; i < V; i++) {
         if (ap[i])
