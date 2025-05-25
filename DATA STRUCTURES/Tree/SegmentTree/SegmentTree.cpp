@@ -17,6 +17,12 @@ private:
         }
         return 1<<(i+(c>1));
     }
+
+    // The function to be applied for updates and queries
+    int func(int a, int b) {
+        return a + b; // Replace this with other associative operations if needed
+    }
+
     // Function to build the tree recursively
     void buildTree(const vector<int>& arr, int node, int start, int end) {
         if (start == end) {
@@ -30,7 +36,7 @@ private:
             buildTree(arr, leftChild, start, mid);
             buildTree(arr, rightChild, mid + 1, end);
 
-            tree[node] = tree[leftChild] + tree[rightChild];
+            tree[node] = func(tree[leftChild],tree[rightChild]);
         }
     }
 
@@ -50,7 +56,7 @@ private:
                 updateTree(rightChild, mid + 1, end, idx, value);
             }
 
-            tree[node] = tree[leftChild] + tree[rightChild];
+            tree[node] = func(tree[leftChild],tree[rightChild]);
         }
     }
 
@@ -71,10 +77,10 @@ private:
         int leftChild = 2 * node + 1;
         int rightChild = 2 * node + 2;
 
-        int leftSum = queryTree(leftChild, start, mid, l, r);
-        int rightSum = queryTree(rightChild, mid + 1, end, l, r);
+        int leftquery= queryTree(leftChild, start, mid, l, r);
+        int rightquery = queryTree(rightChild, mid + 1, end, l, r);
 
-        return leftSum + rightSum;
+        return func(leftquery,rightquery);
     }
 
 public:

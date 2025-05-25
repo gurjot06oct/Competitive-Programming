@@ -3,6 +3,7 @@
 using namespace std;
 
 // Function to calculate all prime factors of n
+// number of factors can be calculated using SPF in logn time 
 vector<int> primeFactors(int n) {
     vector<int> factors;
 
